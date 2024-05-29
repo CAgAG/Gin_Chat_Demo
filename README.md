@@ -8,6 +8,9 @@ IM 即时聊天demo
 - MongoDB: 存放用户聊天信息
 - Redis: 存储 session 和 用户发送消息的数量(骚扰消息拦截)
 
+Websocket:
+- 服务端与客户端通信
+
 ## 项目功能
 - 用户管理
     - 注册
@@ -98,21 +101,25 @@ Get: http://127.0.0.1:8081/chat/test?uid=user1&to_uid=user2
 注册服务
 
 Post: http://127.0.0.1:8081/user/register
+
 ![register.png](images%2Fregister.png)
 
 登录服务
 
 Post: http://127.0.0.1:8081/user/login
+
 ![login.png](images%2Flogin.png)
 
 设置密码
 
 Post: http://127.0.0.1:8081/user/set_password
+
 ![set_password.png](images%2Fset_password.png)
 
 退出登录
 
 Post: http://127.0.0.1:8081/user/logout
+
 ![logout.png](images%2Flogout.png)
 
 ### websocket
