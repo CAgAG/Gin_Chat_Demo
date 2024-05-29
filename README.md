@@ -35,7 +35,7 @@ Websocket:
 - pkg/utils: 工具函数, 包括加密、解密和自定义错误等
 - router: 路由转发
 - serializer: http消息序列化
-- service: 服务实现, 包括用户服务、websocket聊天(单聊和在线群聊)实现
+- service: 服务实现, 包括用户服务、websocket通信实现
 
 ## 配置文件
 conf/config.ini
