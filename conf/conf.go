@@ -8,6 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"gopkg.in/ini.v1"
+	"os"
 	"strings"
 )
 
@@ -44,6 +45,9 @@ func Init() {
 		logging.SetLevel(logging.ErrorLevel)
 		gin.SetMode(gin.ReleaseMode)
 	}
+	logfile, _ := os.OpenFile("./logs/logrus.log", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0644)
+	logging.SetOutput(logfile) // 输出到文件里
+	logging.Info("start logging")
 
 	NewMongoDB()
 	path := strings.Join([]string{DbUser, ":", DbPassWord, "@tcp(", DbHost, ":", DbPort, ")/", DbName, "?charset=utf8&parseTime=true"}, "")

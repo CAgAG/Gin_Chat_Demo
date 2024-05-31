@@ -1,0 +1,62 @@
+version: "3.7"
+
+networks:
+  my_proj:
+    driver: bridge
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=chat_demo
+      - MYSQL_USER=test_root
+      - MYSQL_PASSWORD=123456
+      - TZ=Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./conf/mysql:/var/lib/mysql
+      - ./logs/mysql/log:/var/log/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - my_proj
+
+  redis:
+    container_name: redis
+    image: redis:5.0.14
+    restart: always
+    environment:
+#      - REDIS_PASSWORD=chat_demo
+#      - ALLOW_EMPTY_PASSWORD=no
+      - REDIS_PASSWORD=""
+      - ALLOW_EMPTY_PASSWORD=yes
+      - TZ=Asia/Shanghai
+    ports:
+      - "6379:6379"
+    volumes:
+      - /usr/local/redis:/usr/local/redis
+    networks:
+      - my_proj
+
+  mongo:
+    container_name: mongo
+    image: mongo:7.0.11
+    restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=chat_demo
+      - MONGO_INITDB_ROOT_USERNAME=test_root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+      - TZ=Asia/Shanghai
+
+    ports:
+      - "27017:27017"
+    volumes:
+      - /etc/localtime:/etc/localtime # 时区
+      - ./logs/mongo/db:/data/db # 挂载数据目录
+      - ./logs/mongo/log:/var/log/mongodb  # 挂载日志目录
+      - ./conf/mongo/config:/etc/mongo  # 挂载配置目录
+    networks:
+      - my_proj
