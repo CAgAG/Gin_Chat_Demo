@@ -99,6 +99,26 @@ MongoDBPort = 27017
 ```
 
 ## 项目运行
+
+### 安装环境
+#### 安装好对应的软件
+- Mysql
+- Mongo
+
+#### 或是使用docker 配置环境
+安装 docker 和 docker-compose 后, 
+在项目根目录运行命令
+```bash
+docker-compose up -d
+```
+> Ubuntu
+> 
+> 启动 docker `sudo service docker start`
+> 
+> 关闭 docker `sudo service docker stop`
+>
+> 查看数据库 `docker exec -it mysql /bin/bash` 
+
 ```bash
 go mod tidy
 go run main.go
