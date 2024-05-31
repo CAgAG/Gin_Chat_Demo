@@ -186,3 +186,5 @@ ws://127.0.0.1:8081/chat/test?uid=1&to_uid=2
     "content":"消息id"
 }
 ```
+
+[参考](https://github.com/CocaineCong/gin-chat-demo)
