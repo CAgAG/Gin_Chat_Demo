@@ -27,16 +27,31 @@ Websocket:
 - 在线群聊
 
 ## 项目结构
-- api: API实现
-- cache: Redis缓存, session和发送信息的数量
-- conf: 项目配置, mysql(存储用户信息)、monogo db(存储聊天信息)
-- model: mysql、mongo db 的数据库操作
-- pkg/status: 状态码及其说明
-- pkg/utils: 工具函数, 包括加密、解密和自定义错误等
-- router: 路由转发
-- logs: 日志文件
-- serializer: http消息序列化
-- service: 服务实现, 包括用户服务、websocket通信实现
+[//]: # (- api: API实现)
+[//]: # (- cache: Redis缓存, session和发送信息的数量)
+[//]: # (- conf: 项目配置, mysql&#40;存储用户信息&#41;、mongo db&#40;存储聊天信息&#41;)
+[//]: # (- model: mysql、mongo db 的数据库操作)
+[//]: # (- pkg/status: 状态码及其说明)
+[//]: # (- pkg/utils: 工具函数, 包括加密、解密和自定义错误等)
+[//]: # (- router: 路由转发)
+[//]: # (- logs: 日志文件)
+[//]: # (- serializer: http消息序列化)
+[//]: # (- service: 服务实现, 包括用户服务、websocket通信实现)
+
+```
+Gin_Chat_Demo/
+├── api/             // API实现      
+├── conf             // Redis缓存, session和发送信息的数量        
+├── logs/            // 日志文件
+├── model/           // mysql、mongo db 的数据库操作
+│   └── mongodb      // mongo db 的数据库操作      
+├── pkg/             // 自定义工具包
+│   ├── status       // 状态码及其说明
+│   └── utils        // 工具函数, 包括加密、解密和自定义错误等
+├── router           // 路由转发
+├── serializer       // http消息序列化
+└── service          // 服务实现, 包括用户服务、websocket通信实现
+```
 
 ## 配置文件
 conf/config.ini
@@ -84,27 +99,6 @@ MongoDBPort = 27017
 ```
 
 ## 项目运行
-
-### 安装环境
-#### 安装好对应的软件
-- Mysql
-- Mongo
-
-#### 或是使用docker 配置环境
-安装 docker 和 docker-compose 后, 
-在项目根目录运行命令
-```bash
-docker-compose up -d
-```
-> Ubuntu
-> 
-> 启动 docker `sudo service docker start`
-> 
-> 关闭 docker `sudo service docker stop`
->
-> 查看数据库 `docker exec -it mysql /bin/bash` 
-
-
 ```bash
 go mod tidy
 go run main.go
