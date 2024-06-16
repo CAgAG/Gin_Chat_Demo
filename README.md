@@ -224,7 +224,5 @@ ws://127.0.0.1:8081/chat/test?uid=1&to_uid=2
 ```
 
 > 
-> [参考1](https://gin-gonic.com/docs/),
-> [参考2](https://github.com/gorilla/websocket),
-> [参考3](https://github.com/CocaineCong/gin-chat-demo),
-> [参考4](https://www.mongodb.com/)
+> 参考: [[1]](https://gin-gonic.com/docs/),[[2]](https://github.com/gorilla/websocket),[[3]](https://github.com/CocaineCong/gin-chat-demo),[[4]](https://www.mongodb.com/)
+
