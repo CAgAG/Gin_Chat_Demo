@@ -39,7 +39,7 @@ Websocket:
 [//]: # (- service: 服务实现, 包括用户服务、websocket通信实现)
 
 ```
-Gin_Chat_Demo/
+Chat_demo/
 ├── api/             // API实现      
 ├── conf             // Redis缓存, session和发送信息的数量        
 ├── logs/            // 日志文件
@@ -120,6 +120,7 @@ docker-compose up -d
 > 查看数据库 `docker exec -it mysql /bin/bash` 
 
 ```bash
+cd Chat_demo/
 go mod tidy
 go run main.go
 ```
